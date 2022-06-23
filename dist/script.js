@@ -1,4 +1,4 @@
-const clientID = "abd1af088d86476fb223867c75c8fa02";
+const clientID = "8d339aba7f1d4bb192eb9cd817524da3";
 let btn = document.querySelector('button.pdfActivate')
 
 // PDF API Initialization
