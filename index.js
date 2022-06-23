@@ -1,5 +1,5 @@
 const dropboxLink = "https://www.dropbox.com/s/yoa1iioz3y082kc/1.PAGE.DIGITALPLANNER.ONE.PAGE.VERSION.pdf?dl=0";
-const clientId = "3902787852084cd684e7933f39812720";
+const clientId = "8d339aba7f1d4bb192eb9cd817524da3";
 const viewerOptions = {
     embedMode: "FULL_WINDOW",
     defaultViewMode: "FIT_PAGE",
