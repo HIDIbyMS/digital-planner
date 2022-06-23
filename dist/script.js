@@ -1,14 +1,26 @@
+const dropboxLink = "https://www.dropbox.com/s/yoa1iioz3y082kc/1.PAGE.DIGITALPLANNER.ONE.PAGE.VERSION.pdf?dl=0";
 const clientID = "8d339aba7f1d4bb192eb9cd817524da3";
+const viewerOptions = {
+    embedMode: "FULL_WINDOW",
+    defaultViewMode: "FIT_PAGE",
+    showDownloadPDF: false,
+    showPrintPDF: false,
+    showLeftHandPanel: true,
+    showAnnotationTools: true
+};
+
 let btn = document.querySelector('button.pdfActivate')
 
 // PDF API Initialization
 document.addEventListener("adobe_dc_view_sdk.ready", function () {
+  var urlToPDF = directLinkFromDropboxLink(dropboxLink);
   console.log('adobe_dc_view_sdk.ready')
   btn.disabled = false;
 
   let adobeDCView = new AdobeDC.View({
     clientId: clientID,
-    divId: "adobe-dc-view"
+    divId: "adobe-dc-view" 
+//     divId: "embeddedView"
   });
   // Wrap in function to call when needed
   const displayPDF = () => {
@@ -17,9 +29,12 @@ document.addEventListener("adobe_dc_view_sdk.ready", function () {
 
     // Create PDF preview
     adobeDCView.previewFile({
-      content: {location: {url: "https://documentcloud.adobe.com/view-sdk-demo/PDFs/Bodea Brochure.pdf"}},
-      metaData: { fileName: "Bodea Brochure.pdf" }
-    }, {});
+            content: { promise: fetchPDF(urlToPDF) },
+            metaData: { fileName: urlToPDF.split("/").slice(-1)[0] }
+        },
+        viewerOptions
+    );
+});
 
     // Animate PDF viewer & PDF
     let pdfTL = gsap.timeline({})
