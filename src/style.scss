@@ -1,0 +1,36 @@
+body {
+  color: #333;
+}
+main {
+  width: 100%;
+  min-height: 100vh;
+  padding-top: 2.5rem;
+  padding-bottom: 2.5rem;
+}
+a {
+  &:hover,
+  &:focus {
+    text-decoration: underline;
+  }
+}
+button.pdfActivate {
+  background: #333;
+  color: #fff;
+  
+  &:disabled {
+    opacity: 0.2;
+    cursor: not-allowed;
+  }
+}
+
+// PDF element
+#adobe-dc-view {
+  height: 0;
+  margin-top: 2rem;
+  box-shadow: 0 0 8px #e0e0e0;
+  opacity: 0;
+  
+  iframe {
+    opacity: 0;
+  }
+}
